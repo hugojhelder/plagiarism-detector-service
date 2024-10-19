@@ -1,0 +1,11 @@
+api:
+    dashboard: true
+    insecure: true
+ping: { }
+providers:
+    file:
+        directory: /config
+        watch: true
+entryPoints:
+    http:
+        address: ":80"

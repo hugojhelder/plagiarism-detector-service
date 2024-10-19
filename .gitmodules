@@ -1,0 +1,3 @@
+[submodule "Library"]
+	path = Library
+	url = ../plagiaatcontrole-shared-libraries.git

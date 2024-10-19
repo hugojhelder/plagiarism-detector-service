@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: root
+  host: canvas_psql
+  username: root
+  password: your_password
+  timeout: 5000

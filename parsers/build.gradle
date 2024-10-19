@@ -1,0 +1,14 @@
+plugins {
+	id "java"
+}
+
+group = "nl.hu.plagiaatdetectie"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation(group: "org.antlr", name: "antlr4-runtime", version: "4.6")
+}

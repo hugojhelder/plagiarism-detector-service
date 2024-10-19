@@ -1,0 +1,18 @@
+http:
+    routers:
+        backend:
+            rule: "PathPrefix(`/api`)"
+            service: backend
+            middlewares:
+                - "stripapiprefix"
+    services:
+        backend:
+            loadBalancer:
+                servers:
+                    - url: "http://host.docker.internal:8088"
+    middlewares:
+        stripapiprefix:
+            stripPrefix:
+                prefixes:
+                    - "/api"
+                forceSlash: true

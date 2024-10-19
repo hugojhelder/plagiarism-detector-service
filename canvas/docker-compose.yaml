@@ -1,0 +1,30 @@
+version: "3"
+services:
+  canvas_psql:
+    container_name: canvas_psql
+    build:
+      context: .
+      dockerfile: Dockerfile.psql
+    environment:
+      POSTGRES_DB: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: your_password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - canvas_psql_vol:/var/lib/postgresql/data
+  canvas:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      canvas_psql:
+        condition: service_healthy
+  canvas_redis:
+    image: redis
+    container_name: canvas_redis
+volumes:
+  canvas_psql_vol:

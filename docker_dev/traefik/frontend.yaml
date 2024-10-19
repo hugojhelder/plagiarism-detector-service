@@ -1,0 +1,10 @@
+http:
+    routers:
+        frontend:
+            rule: "PathPrefix(`/`)"
+            service: frontend
+    services:
+        frontend:
+            loadBalancer:
+                servers:
+                    - url: "http://host.docker.internal:3001"
